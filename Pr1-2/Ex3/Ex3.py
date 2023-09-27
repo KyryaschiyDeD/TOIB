@@ -1,4 +1,4 @@
-import string
+gimport string
 
 num = [i for i in range(0,10)]
 letdown = list(string.ascii_lowercase)
@@ -22,10 +22,11 @@ def good_password(password):
             hasSpec = True
     return hasNum and hasDown and hasUp and hasSpec and (len(password) >= 8)
 
+print('<-- xD -->')
+print ('To exit, use exit')
+print('<-- xD -->')
 
 passwStr = ""
-print ('To exit, use exit')
-
 while (passwStr != "exit"):
     passwStr = input("Enter password (default QwErTy1!2): ")
     if (not passwStr):
