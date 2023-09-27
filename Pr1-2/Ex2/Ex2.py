@@ -17,6 +17,20 @@ else:
 	count = 1
 	    
 
+lenghtFromConsole = input('Enter password length (default 8): ')
+
+if lenghtFromConsole:
+	if int(lenghtFromConsole):
+		lenght = int(lenghtFromConsole)
+	else:
+		print('Error')
+else:
+	lenght = 8
+
+print('<-- xD -->')
+
 for _ in range(count):
-	password = generate_password()
+	password = generate_password(lenght)
 	print(password)
+	
+print('<-- xD -->')
