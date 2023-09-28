@@ -11,6 +11,7 @@ letdown = list(string.ascii_lowercase)
 letup = list(string.ascii_uppercase)
 spec = "!@#$%&"
 
+
 def good_password(password):
     hasNum=False
     hasUp=False
@@ -27,6 +28,34 @@ def good_password(password):
         if char in spec:
             hasSpec = True
     return hasNum and hasDown and hasUp and hasSpec and (len(password) >= 8)
+
+def checkPass(passFromFile):
+    goodPass = ""
+    for password in passFromFile.splitlines():
+        isGood = good_password(password)
+        print(password+" ::: "+str(isGood))
+        if (isGood):
+            goodPass = goodPass + password + "\n"
+                
+    print ("\n<-------------------------->\n")
+    print ("Good passwords:")
+    print (goodPass)
+    print ("<-------------------------->")
+
+
+def openFile(filename):
+    if filename:
+        print ('Opening : ' + filename + '...')
+    else:
+        print('using password.txt')
+        filename = 'password.txt'
+   
+    passwordsFromFile = ""
+    with open(filename, 'r', encoding='utf-8') as file:
+        for passwFromFile in file:
+            passwordsFromFile = passwordsFromFile + passwFromFile
+            
+    checkPass(passwordsFromFile)
 
 def generateFile():
     countFromConsole = input('Enter password count: ')
@@ -50,47 +79,16 @@ def generateFile():
     
     if (not lenght):
         lenght = 8
-            
-    file = open("password.txt", "w")
+           
+    filename = "password.txt"
+    file = open(filename, "w+")
     for _ in range(count):
         file.write(generate_password(lenght)+"\n")
     file.close
-    
-    goodPass = ""
-    with open('password.txt', 'r', encoding='utf-8') as file:
-        for passwFromFile in file:
-            isGood = good_password(passwFromFile)
-            print(passwFromFile.replace("\n","")+" ::: "+str(isGood))
-            if (isGood):
-                goodPass = goodPass + passwFromFile
-                
-    print ("\n<-------------------------->\n")
-    print ("Good passwords:")
-    print (goodPass)
-    print ("<-------------------------->")
-    
+    return filename
  
-def openFile():
-    filename = input('Enter filename (default password.txt): ')
 
-    if filename:
-        print ('Opening :' + filename + '...')
-    else:
-        print('using password.txt')
-        filename = 'password.txt'
-   
-    goodPass = ""
-    with open(filename, 'r', encoding='utf-8') as file:
-        for passwFromFile in file:
-            isGood = good_password(passwFromFile)
-            print(passwFromFile.replace("\n","")+" ::: "+str(isGood))
-            if (isGood):
-                goodPass = goodPass + passwFromFile
-                
-    print ("\n<-------------------------->\n")
-    print ("Good passwords:")
-    print (goodPass)
-    print ("<-------------------------->")    
+            
 
 # ------------------------------------------------------
 strInput = ""
@@ -101,9 +99,9 @@ while (strInput != "E"):
     strInput = input(": ")
     match strInput.split():
         case ["O"]:  
-            openFile()
+            openFile(input('Enter filename (default password.txt): '))
         case ["G"]:  
-            generateFile()
+            openFile(generateFile())
         case ["E"]:  
             break;
         case _:
