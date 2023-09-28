@@ -26,7 +26,7 @@ def password_bruteforce(password):
     if (not password):
         password = '1234'
         
-    print ('Breaking: 'password)  
+    print ('Breaking: ' + password)  
     
     for guess in product(characters, repeat=len(password)):
         guessed_password = ''.join(guess) 
