@@ -1,9 +1,10 @@
+"""
+def hash_string(input): Возвращает хэшированный объект
+"""
 import hashlib
 
-
 def hash_string(input):
-    byte_input = input.encode()
-    hash_object = hashlib.sha256(byte_input)
+    hash_object = hashlib.sha256(input.encode())
     return hash_object
 
 

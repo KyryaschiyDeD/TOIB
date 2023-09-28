@@ -1,3 +1,7 @@
+"""
+def generate_password(length = 8): генерирует пароль
+"""
+
 import random
 import string
 

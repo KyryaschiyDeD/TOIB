@@ -1,3 +1,15 @@
+"""
+def generate_password(length = 8): генерирует пароль
+
+def good_password(password): проверяет пароль
+
+def checkPass(passFromFile): проверяет все пароли
+
+def openFile(filename): открывает файл и считывает всё построчно
+
+def generateFile(): генерирует файл
+"""
+
 import string
 import random
 
@@ -9,7 +21,7 @@ def generate_password(length = 8):
 num = [i for i in range(0,10)]
 letdown = list(string.ascii_lowercase)
 letup = list(string.ascii_uppercase)
-spec = "!@#$%&"
+spec = list(string.punctuation)
 
 
 def good_password(password):

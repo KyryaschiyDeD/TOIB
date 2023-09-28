@@ -1,3 +1,8 @@
+"""
+def good_password(password): проверяет пароль
+"""
+
+
 import string
 
 num = [i for i in range(0,10)]

@@ -1,4 +1,15 @@
-﻿import string
+﻿"""
+def _format(num): Превращает большое число в читабельный вид
+
+def password_bruteforce(password): ломает пароль (можно было сравнивать в виде SHA-256, но также не стал бить 
+изначальную строку на символы и их подбирать, ГЫ)
+
+def message(kol,tic): выводит информационное сообщение о том, что мы ещё работаем
+
+def generate_password(strPass): генерирует пароль заданной длины, либо 4
+
+"""
+import string
 import random
 import time
 from time import strftime
@@ -17,6 +28,10 @@ def _format(num):
         num /= 1000.0
     return '{}{}'.format('{:f}'.format(num).rstrip('0').rstrip('.'), ['', 'K', 'M', 'B', 'T'][magnitude])
 
+def message(kol,tic):
+    tmpStr = strftime("%H:%M:%S", gmtime(time.perf_counter() - tic))
+    print (f'Попытка #{_format(kol)} | Прошло времени: {time.perf_counter() - tic:0.4f} секунд ({tmpStr})')  
+
 def password_bruteforce(password): 
     kol = 0  
     tic = time.perf_counter()
@@ -26,14 +41,25 @@ def password_bruteforce(password):
         password = '1234'
         
     print ('Ломаем: ' + password)  
-    kol = 239000000
+    kol = 0
     for guess in product(characters, repeat=len(password)):
         guessed_password = ''.join(guess) 
         if password != guessed_password: 
             kol = kol + 1
-            if (kol % 1000000 == 0):
-                print (f'Попытка #{_format(kol)} | Прошло времени: {time.perf_counter() - tic:0.4f} секунд')
+            if (kol < 10000000): #Менее 10ти миллионов
+                if (kol % 1000000 == 0): #Раз в 1 миллион попыток выводим сообщение
+                    message(kol,tic)
+            elif (kol < 100000000): #Менее 100
+                if (kol % 10000000 == 0): #Раз в 10
+                    message(kol,tic)
+            elif (kol < 500000000): #Менее 500
+                if (kol % 50000000 == 0): #Раз в 50
+                    message(kol,tic)
+            else: #Более 500
+                if (kol % 100000000 == 0): #Раз в 100
+                    message(kol,tic)
         else:
+            message(kol,tic)
             break    
 
     toc = time.perf_counter()
@@ -44,7 +70,7 @@ def password_bruteforce(password):
 
 def generate_password(strPass):
     if (strPass):
-        if (int(strPass)):
+        if (str.isdigit(strPass)):
             length = int(strPass)
         else:
             length = 4 

@@ -1,4 +1,10 @@
-﻿import requests
+﻿"""
+def generate_password(length = 8): генерирует пароль
+def openFile(filename): открывает файл и считывает всё построчно
+def checkPass(passFromFile): проверяет пароль и выводит
+def generateFile(): генерирует файл
+"""
+import requests
 import hashlib
 import string
 import random
