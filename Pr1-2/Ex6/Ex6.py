@@ -21,12 +21,13 @@ def _format(num):
 def password_bruteforce(password): 
     kol = 0  
     tic = time.perf_counter()
-    print (password)
+    
     
     if (not password):
         password = '1234'
         
-    print (password)
+    print ('Breaking: 'password)  
+    
     for guess in product(characters, repeat=len(password)):
         guessed_password = ''.join(guess) 
         if password != guessed_password: 
