@@ -4,11 +4,10 @@ import time
 from time import strftime
 from time import gmtime
 from itertools import product
-from string import digits, ascii_letters
 from random import sample
 
 
-characters = ascii_letters + digits + "!@#$%&"
+characters = string.ascii_letters + string.digits + string.punctuation
 
 def _format(num):
     num = float('{:.3g}'.format(num))
