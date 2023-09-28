@@ -1,4 +1,4 @@
-import string
+﻿import string
 import random
 import time
 from time import strftime
@@ -25,22 +25,22 @@ def password_bruteforce(password):
     if (not password):
         password = '1234'
         
-    print ('Breaking: ' + password)  
-    
+    print ('Ломаем: ' + password)  
+    kol = 239000000
     for guess in product(characters, repeat=len(password)):
         guessed_password = ''.join(guess) 
         if password != guessed_password: 
             kol = kol + 1
             if (kol % 1000000 == 0):
-                print (f'Attempt #{_format(kol)} execution time: {time.perf_counter() - tic:0.4f} seconds')
+                print (f'Попытка #{_format(kol)} | Прошло времени: {time.perf_counter() - tic:0.4f} секунд')
         else:
             break    
 
     toc = time.perf_counter()
 
-    print (f'The program picked up the password: {guessed_password} on the {"{: }".format(kol)}th attempt ({_format(kol)}).')
+    print (f'Сломали пароль: {guessed_password} за {"{: }".format(kol)} попыток ({_format(kol)}).')
     tmpStr = strftime("%H:%M:%S", gmtime(toc - tic))
-    print(f"The calculation took {toc - tic:0.4f} seconds ({tmpStr})")
+    print(f"Прошло времени {toc - tic:0.4f} секунд ({tmpStr})")
 
 def generate_password(strPass):
     if (strPass):
@@ -56,17 +56,17 @@ def generate_password(strPass):
 
 strInput = ""
 while (strInput != "E"):
-    print ("O - Enter the password")
-    print ("G - Generate a password")
-    print ("E - exit")
+    print ("O - Ввести пароль")
+    print ("G - Сгенерировать пароль")
+    print ("E - выйти")
     strInput = input(": ")
     match strInput.split():
         case ["O"]:  
-            password_bruteforce(input('Enter password (default 1234): '))
+            password_bruteforce(input('Введите пароль (default 1234): '))
         case ["G"]:  
-            password_bruteforce(generate_password(input('Enter password length (default 4): ')))
+            password_bruteforce(generate_password(input('Введите длину пароля (default 4): ')))
         case ["E"]:  
             break;
         case _:
-            print("BAD! VERY VAD! Try again...")
+            print("BAD! VERY BAD! Попробуйте снова...")
     print('\n')
