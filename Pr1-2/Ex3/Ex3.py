@@ -1,4 +1,4 @@
-gimport string
+import string
 
 num = [i for i in range(0,10)]
 letdown = list(string.ascii_lowercase)

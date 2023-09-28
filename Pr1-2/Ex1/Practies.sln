@@ -9,6 +9,8 @@ Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Ex2", "..\Ex2\Ex2.pyproj", 
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Ex3", "..\Ex3\Ex3.pyproj", "{F4EE17FF-46BA-4896-8A5B-12DD569E0A5A}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Ex4", "..\Ex4\Ex4.pyproj", "{10652A86-A3D7-4B3A-B410-491B1B95C749}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,8 @@ Global
 		{EC8C85AC-5AD3-4707-BCFB-D7D9FA5024FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4EE17FF-46BA-4896-8A5B-12DD569E0A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F4EE17FF-46BA-4896-8A5B-12DD569E0A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10652A86-A3D7-4B3A-B410-491B1B95C749}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10652A86-A3D7-4B3A-B410-491B1B95C749}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
