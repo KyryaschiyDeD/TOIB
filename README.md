@@ -11,3 +11,5 @@ rsyslog, Loki и Signoz представлены в файле ПР3.md
 Контроль целостности и мандатного разграничения представлены в файле ПР4.md
 
 Работа с keycloak представлена в файле ЛР1.md
+
+Анализ логов представлен в файле ЛР_2_TOIB.ipynb, а также в [гугл коллаб](https://colab.research.google.com/drive/1sTWovITWauuznFLgL7ooHpYiWRtsScFS). 
