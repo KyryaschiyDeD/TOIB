@@ -15,3 +15,5 @@ rsyslog, Loki и Signoz представлены в файле ПР3.md
 Анализ логов представлен в файле ЛР_2_TOIB.ipynb, а также в [гугл коллаб](https://colab.research.google.com/drive/1sTWovITWauuznFLgL7ooHpYiWRtsScFS)
 
 Работа с kali linux и уязвимостями представлена в файле ЛР3.md
+
+Работа с ключами представлена в фале ЛР4.md
